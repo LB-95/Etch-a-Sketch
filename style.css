@@ -1,0 +1,36 @@
+body{
+    background-color: black;
+}
+h1{
+    text-align: center;
+    font-size: 65px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: bisque;
+}
+button{
+    border-radius: 50%;
+    padding: 20px 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid white;
+    
+}
+#reset{
+    
+  margin-left:45%;
+}
+#container{
+    text-align: center;
+    margin-left: 20px;
+}
+
+.row ,  .cell{
+    display: inline-grid;
+    
+
+}
+.cell{
+    border: 1px solid grey;
+    padding: 15px;
+    
+}

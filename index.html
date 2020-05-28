@@ -1,118 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Etch a Sketch</title>
-		<style type="text/css">
-			body {
-				margin: 0px;
-			}
-			h1 {
-				font-size: 30px;
-				text-align: center;
-				margin-top: 1px;
-			}
-			.grid-row:after {
-			    clear: both;
-			    content: "";
-			    display: table;
-
-			}
-			.box-hover {
-				background-color: black;
-
-			} 
-			.btn {
-				display: block;
-				margin: 10px auto 20px auto;
-				padding: 8px 45px;
-				font-size: 18px;
-				border: 3px solid black;
-				border-radius: 18px;
-				color: black;
-				background-color: #b88bddf2;
-				transition: all ease 0.1s;
-			}
-			button:hover {
-				color: #fff;
-				background-color: #0a090bd1;
-				transform: scale(1.1);
-			}
-
-
-		</style>
-
-
+	<meta charset="UTF-8">
+	<title>Etch-A-Sketch</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 	
-
-
 </head>
+
 <body>
-	<h1>Ethch a Sketch</h1>
-	<button class="btn">Change grid size</button>
-
+	<header>
+		<h1>Etch-A-Sketch</h1>
+		<button id="reset">Reset</button>
+	</header>
 	<div id="container"></div>
-	<script type="text/javascript">
-		const divContainer = document.getElementById('container')
-		divContainer.setAttribute('style',
-			"display:block;		width:960px;	height:960px;	margin:15px auto"
-		)
-
-		function randomColorGenerator(){
-			let hexStr = '0123456789ABCDEF'
-			let color= '#'
-			for (var i = 0; i < 6; i++) {
-				color += hexStr[Math.floor(Math.random()*16)]	
-			}
-			return color
-		}
-
-		function gridGenerator(size){
-
-
-			for (var row = 0 ;row < size; row++){
-				const grid_row = document.createElement('div')
-				grid_row.classList.add(`grid-row`)
-				divContainer.appendChild(grid_row)
-
-				for (var i = 0; i < size; i++) {
-					const rowDivs = document.createElement('div')
-					rowDivs.style.opacity = '1'
-					rowDivs.classList.add('box')
-					rowDivs.setAttribute('style',
-						`float:left;	width:${960/size}px;	height:${960/size}px;			
-						border:0.1px solid black;	box-sizing: border-box;opacity:1`
-					)
-					grid_row.appendChild(rowDivs)
-
-				}
-			}
-
-			const allBoxes = document.querySelectorAll('.box')
-			allBoxes.forEach(function(box){
-				box.addEventListener('mouseover',function(e){
-					box.style.backgroundColor = randomColorGenerator() //'black' 
-					box.style.opacity -= 0.1
-					})
-				})
-		}
-
-		gridGenerator(64)
-		
-		const btn = document.querySelector('.btn')
-
-		btn.addEventListener('click',function(){
-			const size = prompt("enter size of grid: ")
-			if(!size) return
-			const grid_row = document.querySelectorAll('.grid-row')
-			grid_row.forEach(function(box){
-				divContainer.removeChild(box)
-			})
-
-			gridGenerator(size)
-		})
-
-	</script>
+	
+	
+	<script type="text/javascript" src="script.js"></script>
 
 </body>
+
+
 </html>
